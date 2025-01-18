@@ -5,10 +5,13 @@ body {
     height: 100vh;
     background-color: #f0f0f0;
     font-family: 'Arial', sans-serif;
+    margin: 0;
 }
 
 .calculator-container {
     position: relative;
+    width: 100%;
+    max-width: 400px;
 }
 
 .time-display {
@@ -22,7 +25,7 @@ body {
 .calculator {
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 350px;
+    width: 100%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     perspective: 1000px;
 }
@@ -78,4 +81,9 @@ button.all-clear {
     background-color: #d32f2f;
     color: white;
     grid-column: span 2;
+}
+
+button.mic {
+    background-color: #3f51b5;
+    color: white;
 }

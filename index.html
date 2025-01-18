@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Calculator</title>
+    <title>Nathy's First Edition</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="header">
+        <h1>Nathy's First Edition</h1>
+        <div class="fire-line"></div>
+    </div>
     <div class="calculator-container">
         <div class="time-display" id="time-display"></div>
         <div class="calculator">
@@ -20,7 +24,7 @@
                 <button type="button" class="operator" value="**">^</button>
                 <button type="button" class="operator" value="sqrt">√</button>
                 <button type="button" class="backspace" value="backspace">←</button>
-                
+
                 <button type="button" value="7">7</button>
                 <button type="button" value="8">8</button>
                 <button type="button" value="9">9</button>
@@ -36,6 +40,15 @@
                 <button type="button" class="equal-sign operator" value="=">=</button>
                 <button type="button" class="mic" value="mic">🎤</button>
             </div>
+        </div>
+        <div class="currency-converter">
+            <h2>Currency Converter</h2>
+            <input type="number" id="amount" placeholder="Amount">
+            <select id="currency">
+                <!-- Currency options will be populated here by JavaScript -->
+            </select>
+            <button type="button" id="convert">Convert</button>
+            <div id="conversion-result"></div>
         </div>
     </div>
     <script src="script.js"></script>

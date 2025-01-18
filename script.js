@@ -76,6 +76,20 @@ function updateTime() {
     timeDisplay.textContent = formattedTime;
 }
 
+function handleBackspace() {
+    calculator.displayValue = calculator.displayValue.slice(0, -1) || '0';
+}
+
+function handleMic() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.onresult = (event) => {
+        const speechResult = event.results[0][0].transcript;
+        calculator.displayValue = speechResult;
+        updateDisplay();
+    };
+    recognition.start();
+}
+
 updateDisplay();
 updateTime();
 setInterval(updateTime, 1000);
@@ -105,6 +119,17 @@ keys.addEventListener('click', (event) => {
     if (target.classList.contains('all-clear')) {
         resetCalculator();
         updateDisplay();
+        return;
+    }
+
+    if (target.classList.contains('backspace')) {
+        handleBackspace();
+        updateDisplay();
+        return;
+    }
+
+    if (target.classList.contains('mic')) {
+        handleMic();
         return;
     }
 

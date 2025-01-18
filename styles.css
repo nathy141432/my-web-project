@@ -7,11 +7,24 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+.calculator-container {
+    position: relative;
+}
+
+.time-display {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
 .calculator {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 320px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    perspective: 1000px;
 }
 
 .calculator-screen {
@@ -23,22 +36,31 @@ body {
     text-align: right;
     padding: 0 20px;
     font-size: 2.5rem;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .calculator-keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
+    gap: 5px;
+    padding: 10px;
 }
 
 button {
-    height: 80px;
+    height: 60px;
     font-size: 1.5rem;
     border: none;
     background-color: white;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in-out;
+}
+
+button:active {
+    transform: translateY(2px);
 }
 
 button.operator {

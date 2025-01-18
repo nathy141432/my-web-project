@@ -51,6 +51,9 @@ const performCalculation = {
     '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
     '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
     '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+    '%': (firstOperand, secondOperand) => firstOperand % secondOperand,
+    '**': (firstOperand, secondOperand) => Math.pow(firstOperand, secondOperand),
+    'sqrt': (firstOperand) => Math.sqrt(firstOperand),
     '=': (firstOperand, secondOperand) => secondOperand,
 };
 
@@ -66,7 +69,16 @@ function updateDisplay() {
     display.value = calculator.displayValue;
 }
 
+function updateTime() {
+    const timeDisplay = document.getElementById('time-display');
+    const now = new Date();
+    const formattedTime = now.toLocaleTimeString();
+    timeDisplay.textContent = formattedTime;
+}
+
 updateDisplay();
+updateTime();
+setInterval(updateTime, 1000);
 
 const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event) => {
@@ -74,6 +86,9 @@ keys.addEventListener('click', (event) => {
     if (!target.matches('button')) {
         return;
     }
+
+    target.classList.add('clicked');
+    setTimeout(() => target.classList.remove('clicked'), 100);
 
     if (target.classList.contains('operator')) {
         handleOperator(target.value);
